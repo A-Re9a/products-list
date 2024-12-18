@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crud products list</title>
+    <link rel="shortcut icon" href="./pho/imgbin_computer-icons-favicon-products list-png.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class=" text-white">
+<div class="container">
+<!-- title -->
+<div class="d-flex justify-content-center align-items-center my-2"><h1 class=" mt-5 mb-5 text-uppercase">products list</h1> </div>
+<!-- inputs -->
+<div class="form-floating text-black my-3">
+    <input oninput="valid(this,'nameAlert')" type="text" id="productNameInput" placeholder="product name" class="form-control rounded-3">
+    <label for="productNameInput">product name:</label>
+    <p class="alert alert-danger py-0 d-none" id="nameAlert">Please enter a valid Product name</p>
+</div>
+
+<div class="form-floating text-black my-3">
+    <input oninput="valid(this, 'numberAlert')" type="number" id="productPriceInput" placeholder="product Price" class="form-control rounded-3">
+    <label for="productPriceInput">product Price:</label>
+    <p class="alert alert-danger py-0 d-none" id="numberAlert">Please enter a valid Product Price</p>
+
+</div>
+
+<div class="form-floating text-black my-3">
+    <input oninput="valid(this,'categoryAlert')" list="Categories" type="text" id="productCategoryInput" placeholder="product Category" class="form-control rounded-3">
+    <label for="productCategoryInput">product Category:</label>
+    <p class="alert alert-danger py-0 d-none" id="categoryAlert">Please enter a valid Product Category</p>
+
+    <datalist id="Categories">
+        <option value="TV"></option>
+        <option value="Mobile"></option>
+        <option value="Laptop"></option>
+        <option value="Tablet"></option>
+        <option value="Camera"></option>
+        <option value="Speaker"></option>
+        <option value="Printer"></option>
+        <option value="Router"></option>
+        <option value="Keyboard"></option>
+        <option value="Mouse"></option>
+    </datalist>
+</div>
+
+<div class="form-floating text-black my-3">
+    <input oninput="valid(this,'descriptionAlert')" list="Descriptions" type="text" id="productDescriptionInput" placeholder="product Description" class="form-control rounded-3">
+    <label for="productDescriptionInput">product Description:</label>
+    <datalist id="Descriptions">
+            <option value="Excellent"></option>
+            <option value="Very Good"></option>
+            <option value="Good"></option>
+            <option value="Average"></option>
+            <option value="Bad"></option>
+    </datalist>
+    <p class="alert alert-danger py-0 d-none" id="descriptionAlert">Please enter a valid Product Description</p>
+
+</div>
+<div id="productPhotoGroup">
+<div class="form-floating text-black my-3">
+    <input  onchange="productImgInputChange()" accept="image/*" type="file" id="productImgInput" placeholder="product Img" class="form-control rounded-3">
+    <label for="productImgInput">product Img:</label>
+</div>
+</div>
+<div id="labelName" class="d-none"><label for="" >product Img:</label></div>
+
+<div id="imgGroup" class=" d-none">
+
+
+</div>
+<!-- I/P button -->
+<button id="addBtn" onclick="addProducts()" type="submit" class="btn btn-outline-in my-3">Add Product </button>
+<button id="updateBtn" onclick="updateProducts()" class="btn btn-outline-info my-3 btn-sm w-25 m-1 d-none ">Update Product </button>
+
+</div>
+
+<div class="container">
+    <input  id="searchProductInput" oninput="searchProduct()" type="text" class="form-control w-50 mx-auto" placeholder="search...">
+
+    <div id="productList" class="row my-4 g-3">
+    </div>
+</div>
+
+
+
+
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>
